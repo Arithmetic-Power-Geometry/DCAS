@@ -1,0 +1,32 @@
+{
+  "rdex_csop": {
+    "url": "https://github.com/SichenTao/IEEE-CEC-2025-Competition-RDEx-Series.git",
+    "path": "external/vendor/RDEx-Series",
+    "role": "primary released CEC-2025 BC-CSOP comparator",
+    "required": true
+  },
+  "cec2017_official": {
+    "url": "https://github.com/P-N-Suganthan/CEC2017.git",
+    "path": "external/vendor/CEC2017",
+    "role": "official constrained benchmark source",
+    "required": true
+  },
+  "pycma": {
+    "url": "https://github.com/CMA-ES/pycma.git",
+    "path": "external/vendor/pycma",
+    "role": "CMA-ES reference implementation",
+    "required": false
+  },
+  "drl_aeosf": {
+    "url": "",
+    "path": "external/vendor/DRL-AEOSF",
+    "role": "DRL-AEOSF author-code slot; URL supplied only after a verified public author repository is located",
+    "required": false
+  },
+  "constraint_consensus": {
+    "url": "",
+    "path": "external/vendor/constraint-consensus",
+    "role": "constraint-consensus author-code slot; URL supplied only after a verified public author repository is located",
+    "required": false
+  }
+}

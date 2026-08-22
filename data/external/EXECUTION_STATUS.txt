@@ -1,0 +1,10 @@
+External CEC/SOTA execution status
+
+Verified source URLs configured: RDEx-CSOP, official constrained CEC2017, pycma.
+Official numerical job manifest: 0 jobs until suite-specific protocols are resolved from fetched official/released sources.
+External campaign plan: present and fail-closed.
+Numerical source retrieval in this runtime: unavailable (outbound git/DNS blocked during verification).
+Direct external numerical results: NOT EXECUTED.
+Fabricated/substitute author-code results: NONE.
+
+Run the GitHub Actions workflow "External CEC-SOTA Validation" after uploading the repository. The workflow fetches configured public sources, records provenance, runs protocol/evaluator preflight, builds only protocol-resolved jobs, and analyzes standardized results. Missing or unverifiable author code remains NOT EXECUTED.

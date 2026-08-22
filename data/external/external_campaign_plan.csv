@@ -1,0 +1,5 @@
+suite,status,target
+CEC2010-CSOP,protocol_pending,released/official evaluator
+CEC2017-CSOP,source_verified_protocol_pending,official CEC evaluator
+CEC2020-CSOP,protocol_pending,released/official evaluator
+CEC2025-BC-CSOP,source_verified_protocol_pending,RDEx-CSOP + official track

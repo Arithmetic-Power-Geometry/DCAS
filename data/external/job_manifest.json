@@ -1,0 +1,6 @@
+{
+  "jobs": 0,
+  "policy": "fail-closed",
+  "status": "protocols_unresolved",
+  "note": "Run source fetch + adapter protocol resolution before numerical execution."
+}

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "Discovery-Closure Adaptive Search (DCAS)"
+message: "If you use this software, please cite the accompanying DCAS manuscript and the foundational Closure Complexity, Closure-Guided Optimization, and Discovery Plane Theory works."
+type: software
+authors:
+  - family-names: Akhtar
+    given-names: Mohammad Amir Khusru
+license: Apache-2.0
+repository-code: "https://github.com/Arithmetic-Power-Geometry/DCAS"
+date-released: 2026-08-22

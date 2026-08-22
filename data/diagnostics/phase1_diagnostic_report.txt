@@ -1,0 +1,31 @@
+DCAS Phase-1 Diagnostic Report
+
+Tests performed
+1. Original package unit tests: 5/5 passed.
+2. Reproduced controller behavior on six difficult problems with 15 seeds each.
+3. Identified an unavailable-action starvation defect in the original controller.
+4. Applied only a minimal availability fix: the controller chooses among currently executable actions; no new optimizer feature was added.
+5. Re-ran the same six difficult problems with 15 seeds.
+6. Ran the remaining six mechanism problems with 15 seeds, giving 12 problems × 2 methods × 15 seeds = 360 runs for fixed DCAS vs JADE.
+
+Critical defect
+When 'closure' was selected before a feasible archive existed, the code changed the executed action to 'rand1' and credited rand1. The closure arm therefore remained untried, so the controller repeatedly selected closure and repeatedly fell back to rand1. This starved local and consensus actions.
+
+Observed original action pattern on NarrowCorridor12 over 15 runs:
+rand1=5235, pbest=165, closure=0, local=0, consensus=0.
+
+Results after minimal fix
+Aggregate DCAS success rate: 0.967
+Aggregate JADE success rate: 0.706
+Median evaluations to first feasible:
+DCAS=156.0
+JADE=279.5
+
+Paired feasibility-first outcomes over 180 problem-seed blocks:
+DCAS wins=162
+JADE wins=18
+Ties=0
+One-sided exact sign-test p=1.870e-30
+
+Important interpretation
+These results are diagnostic, not a definitive SOTA claim. They show that the previously reported DCAS-vs-JADE weakness was substantially caused by a controller availability bug. The manuscript's current benchmark results should therefore be regenerated from corrected code before submission.

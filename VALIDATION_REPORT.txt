@@ -1,0 +1,27 @@
+DCAS GITHUB-CLEAN RELEASE VALIDATION
+Repository: https://github.com/Arithmetic-Power-Geometry/DCAS
+Release: 1.1.1
+
+Packaging
+- Apache-2.0 license present.
+- CITATION.cff points to the official repository.
+- Root .gitignore and .gitattributes present.
+- Python/pytest caches and compiled bytecode removed from the release archive.
+- Third-party external source checkouts are excluded from Git by default.
+- Windows and Linux/macOS reproduction scripts are included.
+
+Software validation
+- Direct clean-tree test command: python -m pytest -q
+- Unit/regression tests: 10/10 passed.
+- Editable package installation validated in the active build environment.
+- DCAS import validated from src/dcas.
+- Benchmark smoke test: DCAS and JADE-NCV, 12 problems, one seed, 80 evaluations; 24/24 rows generated successfully to a temporary file.
+- Preserved executed records: 5,388 (3,600 main + 108 declared-cost + 1,440 cross-host/engineering + 240 large-scale).
+
+External validation boundary
+- External CEC/SOTA workflow remains manual and fail-closed.
+- Missing official/author-code numerical results are not substituted or fabricated.
+- Competition-specific settings supersede generic defaults.
+
+Environment note
+- This execution environment blocks outbound package/source retrieval, so a fully isolated fresh-environment dependency download was not possible here. GitHub Actions is configured to install requirements and the editable package before testing.

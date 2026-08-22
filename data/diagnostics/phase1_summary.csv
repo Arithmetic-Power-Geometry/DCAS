@@ -1,0 +1,13 @@
+Problem,DCAS success,JADE success,DCAS median EFF,JADE median EFF,DCAS wins,JADE wins,Mean DCAS RCD
+Annulus10,1.0,1.0,127.0,234.0,15,0,0.301
+ChainConstraint30,1.0,0.067,220.0,401.0,15,0,0.576
+G06,0.6,0.6,373.0,376.0,9,6,0.159
+G08,1.0,1.0,51.0,97.0,14,1,0.229
+G11,1.0,1.0,90.0,105.0,8,7,0.647
+MultiShell12,1.0,1.0,88.0,157.0,14,1,0.184
+NarrowCorridor12,1.0,1.0,169.0,256.0,15,0,0.683
+RotatedBox10,1.0,0.133,278.0,401.0,15,0,0.343
+RotatedEllipsoid20,1.0,0.867,160.0,342.0,15,0,0.42
+SparseFeasible20,1.0,0.0,285.0,401.0,15,0,0.345
+TwoBasin8,1.0,0.8,156.0,288.0,15,0,0.239
+WeldedBeam,1.0,1.0,4.0,4.0,12,3,0.034

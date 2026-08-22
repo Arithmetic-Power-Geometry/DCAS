@@ -1,0 +1,41 @@
+{
+  "sources": {
+    "rdex_csop": {
+      "path": "external/vendor/RDEx-Series",
+      "exists": false,
+      "required": true,
+      "role": "primary released CEC-2025 BC-CSOP comparator"
+    },
+    "cec2017_official": {
+      "path": "external/vendor/CEC2017",
+      "exists": false,
+      "required": true,
+      "role": "official constrained benchmark source"
+    },
+    "pycma": {
+      "path": "external/vendor/pycma",
+      "exists": false,
+      "required": false,
+      "role": "CMA-ES reference implementation"
+    },
+    "drl_aeosf": {
+      "path": "external/vendor/DRL-AEOSF",
+      "exists": false,
+      "required": false,
+      "role": "DRL-AEOSF author-code slot; URL supplied only after a verified public author repository is located"
+    },
+    "constraint_consensus": {
+      "path": "external/vendor/constraint-consensus",
+      "exists": false,
+      "required": false,
+      "role": "constraint-consensus author-code slot; URL supplied only after a verified public author repository is located"
+    }
+  },
+  "protocols_resolved": false,
+  "manifest": {
+    "jobs": 0
+  },
+  "ready_for_numeric_campaign": false,
+  "rdex_csop_package_found": false,
+  "cec2017_package_found": false
+}
