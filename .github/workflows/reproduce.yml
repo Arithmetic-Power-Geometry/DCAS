@@ -1,0 +1,43 @@
+name: reproduce-dcas
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: 'Independent seeds for the main campaign'
+        required: false
+        default: '30'
+      budget:
+        description: 'Evaluations per main/cross-host run'
+        required: false
+        default: '400'
+  push:
+    branches: [ main ]
+jobs:
+  test-and-reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Main corrected campaign
+        run: python scripts/run_benchmark.py --seeds ${{ inputs.seeds || '30' }} --budget ${{ inputs.budget || '400' }} --jobs 2
+      - name: Declared-cost study
+        run: python scripts/run_cost_study.py
+      - name: Main artifacts
+        run: python scripts/make_artifacts.py
+      - name: Cross-host and engineering validation
+        run: python scripts/run_crosshost.py --seeds 30 --budget ${{ inputs.budget || '400' }} --jobs 2 --problems 'G06,G08,RotatedBox10,NarrowCorridor12,WeldedBeam,PressureVessel,TensionSpring,CantileverBeam'
+      - name: Large-scale stress validation
+        run: python scripts/run_large_scale.py --dims 100,500,1000 --seeds 10 --budget 600 --jobs 2
+      - name: Extended analysis
+        run: python scripts/analyze_extended.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dcas-reproduction
+          path: |
+            data/raw/*.csv
+            tables/*.csv
+            figures/*.png

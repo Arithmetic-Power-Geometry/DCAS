@@ -1,0 +1,39 @@
+name: External CEC-SOTA Validation
+on:
+  workflow_dispatch:
+    inputs:
+      analyze_only:
+        description: 'Skip source fetch and analyze a standardized result CSV already present'
+        required: false
+        default: 'false'
+permissions:
+  contents: read
+jobs:
+  external-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r requirements.txt
+      - name: Fetch verified public upstream sources
+        if: ${{ inputs.analyze_only != 'true' }}
+        run: bash scripts/fetch_external_sota.sh
+      - name: Provenance / protocol preflight
+        run: python scripts/external_preflight.py
+      - name: Build fail-closed official job manifest
+        run: python scripts/prepare_external_campaign.py
+      - name: Re-run preflight after manifest resolution
+        run: python scripts/external_preflight.py
+      - name: Analyze standardized external results if present
+        run: python scripts/analyze_external_results.py
+      - name: Upload external validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dcas-external-validation
+          path: |
+            data/external/
+            tables/external_*.csv
+            figures/external_*.png
+          if-no-files-found: warn
